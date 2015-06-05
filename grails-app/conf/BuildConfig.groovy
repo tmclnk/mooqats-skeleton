@@ -33,7 +33,7 @@ grails.project.dependency.resolution = {
     legacyResolve false // whether to do a secondary resolve on plugin installation, not advised and here for backwards compatibility
 
     repositories {
-        inherits true // Whether to inherit repository definitions from plugins
+        //inherits true // Whether to inherit repository definitions from plugins
 
         grailsPlugins()
         grailsHome()
@@ -44,6 +44,7 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
+		mavenRepo "http://jcenter.bintray.com/"
     }
 
     dependencies {
@@ -51,6 +52,9 @@ grails.project.dependency.resolution = {
         // runtime 'mysql:mysql-connector-java:5.1.29'
         // runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
         test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
+		
+		//TODO move spock-genesis to "test" once it is no longer referenced from Bootstrap.groovy
+		runtime "com.nagternal:spock-genesis:0.2.0" //provides Generators for Spock data-driven unit tests 
     }
 
     plugins {
@@ -75,5 +79,6 @@ grails.project.dependency.resolution = {
 	
 		// project-specific plugins	
 		compile ":filterpane:2.4.7"
+		
     }
 }
